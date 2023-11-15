@@ -1,9 +1,9 @@
 package group2.cdio3;
 
 public class Player {
-    private String figureName;
-    private Account account;
-    private char figureSymbol;
+    public final String figureName;
+    public final Account account;
+    public final char figureSymbol;
     public boolean hasGetOutOfJailCard  = false;
     public boolean IsInJail = false;
     

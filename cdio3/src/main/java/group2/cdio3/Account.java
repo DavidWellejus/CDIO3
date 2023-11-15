@@ -9,4 +9,9 @@ class Account {
    public int getAccountBalance() {
       return this.accountBalance;
    }
+
+   public void addToAccountBlalance(int amount){
+      this.accountBalance += amount;
+   }
+
 }

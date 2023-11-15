@@ -1,4 +1,5 @@
 package group2.cdio3;
+
 class Account {
    private int accountBalance;
 
@@ -10,13 +11,12 @@ class Account {
       return this.accountBalance;
    }
 
-   public void addToAccountBlalance(int amount)throws IllegalArgumentException{
-      if(amount >= 0){
+   public void addToAccountBalance(int amount) throws IllegalArgumentException {
+      if (amount >= 0) {
          this.accountBalance += amount;
-      }
-      else{
+      } else {
          throw new IllegalArgumentException("Amount must be equal or greater than 0");
-         
+
       }
    }
 }

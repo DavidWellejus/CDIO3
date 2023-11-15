@@ -1,9 +1,7 @@
 package group2.cdio3;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
 import org.junit.Test;
 
 
@@ -17,7 +15,7 @@ public class AccountConstructorTest {
 
     public void AccountTest(){
 
-        assertEquals(1000, accountTest.*/* indsæt accountbalance her*/);
+        assertEquals(1000, accountTest.getAccountBalance());
         
 
     }

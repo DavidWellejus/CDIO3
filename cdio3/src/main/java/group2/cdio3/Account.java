@@ -15,8 +15,15 @@ class Account {
       if (amount >= 0) {
          this.accountBalance += amount;
       } else {
-         throw new IllegalArgumentException("Amount must be equal or greater than 0");
+         throw new IllegalArgumentException("Amount must be equal or greater than 0!");
 
+      }
+   }
+   public void subtractFromAccountBalance(int amount) throws IllegalArgumentException {
+      if (amount >= 0) {
+         this.accountBalance -= amount;
+      } else {
+         throw new IllegalArgumentException("Amount must be equal or greater than 0!");
       }
    }
 }

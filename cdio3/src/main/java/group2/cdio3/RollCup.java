@@ -4,8 +4,8 @@ class RollCup {
     
     public static final int NUMBER_OF_DICE = 1;
 
-
-    static int rollDie(){
+    public static int rollDie(){
+        
         return Die.rollDie();
     }
 }

@@ -10,8 +10,13 @@ public class RollCupTest {
     public void diceSideTest(){
         int min = 1;
         int max = 6;
-        int side = RollCup.rollDie();
-        System.out.println(side);
-        assertTrue(side >= min && side <= max);
+        int numberOfRolls = 1000;
+
+        for(int i = 0; i < numberOfRolls; i++) {
+            int side = RollCup.rollDie();
+            System.out.println(side);
+            assertTrue(side >= min && side <= max);
     }
+        }
+        
 }

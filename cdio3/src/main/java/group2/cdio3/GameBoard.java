@@ -5,6 +5,7 @@ class GameBoard {
     private Field[] fieldArray;
     private ChanceCard[] chanceCardArray;
     private Player[][] playerPosition;
+    private Player[] fieldOwner = new Player[24];
     
     
     //Constructor for two players
@@ -68,6 +69,28 @@ class GameBoard {
         fieldArray[21] = new Chance("Chance", 21);
         fieldArray[22] = new Property("Joe's Quick Suicide Clinic", 22);
         fieldArray[23] = new Property("Restaurant Cold Feet", 23);
+    }
+
+    public Player getFieldOwner(int fieldNumber) {
+        //We migth want to implement a NULL check
+        return fieldOwner[fieldNumber];
+    }
+
+    public void setFieldOwner(int fieldNumber, Player player) {
+        fieldOwner[fieldNumber] = player;
+    }
+
+    public int getFieldNumber(Player player) {
+        for(int i = 0; i < playerPosition.length; i++) {
+            for(int j = 0; j < playerPosition[i].length; j++){
+                if(playerPosition[i][j] == player) {
+                    return i;
+                }
+            }
+        }
+    }
+
+    private void movePlayerFigure(Player player, int dieValue){
         
     }
 }

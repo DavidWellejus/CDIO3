@@ -10,6 +10,10 @@ abstract class Field {
         this.fieldNumber = fieldNumber;
     }
 
+    public String getFieldColour() {
+        return "";
+    }
+
     abstract String getDescription();
 
     abstract int[] startFieldEvent();

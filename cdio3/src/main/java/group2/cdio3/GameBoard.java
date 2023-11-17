@@ -13,6 +13,8 @@ class GameBoard {
         playerPosition = new Player[24][3];
         playerPosition[0][1] = player1;
         playerPosition[0][2] = player2;
+
+        fieldArray = generateFieldArray();
     }
 
     //Constructor for three players
@@ -22,6 +24,8 @@ class GameBoard {
         playerPosition[0][1] = player1;
         playerPosition[0][2] = player2;
         playerPosition[0][3] = player3;
+
+        fieldArray = generateFieldArray();
     }
 
     //Constructor for four players
@@ -32,9 +36,11 @@ class GameBoard {
         playerPosition[0][2] = player2;
         playerPosition[0][3] = player3;
         playerPosition[0][4] = player4;
+
+        fieldArray = generateFieldArray();
     }
 
-    private Field[] generateFieldArray(){
+    private static Field[] generateFieldArray(){
 
         Field[] fieldArray = new Field[24];
         
@@ -63,7 +69,5 @@ class GameBoard {
         fieldArray[22] = new Property("Joe's Quick Suicide Clinic", 22);
         fieldArray[23] = new Property("Restaurant Cold Feet", 23);
         
-
-
     }
 }

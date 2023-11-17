@@ -1,7 +1,7 @@
 package group2.cdio3;
 
 class Start extends Field{
-
+    private int[] sFEArray = new int[]{0,0,0};
     public Start(String name, int fieldNumber) {
         
         super(name, fieldNumber);
@@ -9,9 +9,9 @@ class Start extends Field{
 
     @Override
 
-    int startFieldEvent() {
+    int [] startFieldEvent() {
         
-        return 0;
+        return sFEArray;
     }
 
     @Override

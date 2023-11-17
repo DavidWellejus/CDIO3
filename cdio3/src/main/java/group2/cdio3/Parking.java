@@ -2,7 +2,7 @@ package group2.cdio3;
 
 class Parking extends Field {
     Parking(String name, int fieldNumber){
-    super("parking", 12);
+        super(name,fieldNumber);
     }
    public int startFieldEvent(){
     return 0;

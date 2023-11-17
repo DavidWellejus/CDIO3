@@ -1,11 +1,13 @@
-package group2.cdio3;
+    package group2.cdio3;
 
 class Parking extends Field {
+    private int[] sFEArray = new int[]{0,0,0};
     Parking(String name, int fieldNumber){
         super(name,fieldNumber);
     }
-   public int startFieldEvent(){
-    return 0;
+    int [] startFieldEvent() {
+        
+        return sFEArray;
    }
    public String getDescription(){
     return "Free parking";

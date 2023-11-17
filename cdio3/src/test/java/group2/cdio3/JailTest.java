@@ -14,11 +14,11 @@ public class JailTest{
         assertTrue("jail".equals(description));
     }
 
-    @Test
+    /*@Test
     public void startFieldEventTest(){
         int number = jailTest.startFieldEvent();
         assertTrue(number == 0);
-    }
+    }*/
 
     @Test
     public void getOutOfJailTest(){

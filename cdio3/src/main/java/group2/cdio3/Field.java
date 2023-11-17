@@ -12,6 +12,6 @@ abstract class Field {
 
     abstract String getDescription();
 
-    abstract int startFieldEvent();
+    abstract int[] startFieldEvent();
 
 }

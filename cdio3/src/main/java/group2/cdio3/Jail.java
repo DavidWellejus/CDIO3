@@ -15,7 +15,7 @@ class Jail extends Field{
         return 0;
     }
 
-    public void getOutOfJail(Player player){
+    public static void getOutOfJail(Player player){
         if(player.hasGetOutOfJailCard == true){
             player.hasGetOutOfJailCard = false;
         }        

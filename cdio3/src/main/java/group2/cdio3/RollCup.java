@@ -9,3 +9,4 @@ class RollCup {
         return Die.rollDie();
     }
 }
+

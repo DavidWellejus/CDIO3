@@ -1,6 +1,7 @@
 package group2.cdio3;
 
 class Jail extends Field{
+    private int[] sFEArray = new int[]{0,0,0};
     public Jail(String name, int fieldNumber){
         super(name, fieldNumber);
     }
@@ -11,8 +12,8 @@ class Jail extends Field{
     }   
     
     @Override
-    public int startFieldEvent(){
-        return 0;
+    public int[] startFieldEvent(){
+        return sFEArray;
     }
 
     public static void getOutOfJail(Player player){

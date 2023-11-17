@@ -91,6 +91,26 @@ class GameBoard {
     }
 
     private void movePlayerFigure(Player player, int dieValue){
-        
+        int startPosition = getFieldNumber(player);
+        int endPosition = 0;
+
+        if(dieValue + startPosition > 23){
+
+            endPosition = dieValue - (23 - startPosition) - 1;
+        }
+        else {
+            endPosition = dieValue + startPosition;
+        }
+
+        for(int i = 0; i < playerPosition[startPosition].length; i++){
+            if(playerPosition[startPosition][i] == player) {
+                
+                playerPosition[startPosition][i] = null;
+                playerPosition[endPosition][i] = player;
+            }
+        }
+        if(endPosition < startPosition) {
+            player.account.addToAccountBalance(2);
+        }
     }
 }

@@ -31,6 +31,9 @@ class Property extends Field{
     public String getDescription(){
         return this.colour +" "+ this.name + " " + this.price;
     }
+    public String getFieldColour(){
+        return this.colour;
+    }
 
     public int[] startFieldEvent(){
         int[] array = new int[3];

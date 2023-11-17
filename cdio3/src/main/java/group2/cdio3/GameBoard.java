@@ -116,5 +116,16 @@ class GameBoard {
         return fieldArray[endPosition];
     }
 
+    public boolean sameOwner(Player player) {
+        int field = getFieldNumber(player);
+        Player owner = getFieldOwner(field);
+        String fieldColour = fieldArray[field].getFieldColour();
 
+        for(int i = 0; i < fieldArray.length; i++) {
+            if(fieldArray[i].getFieldColour().equals(fieldColour) && i != field && getFieldOwner(i) == owner){
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -15,6 +15,12 @@ public class GoToJailTest {
          System.out.println(goToJailTest.getDescription());
 
     }
+    @Test
+    public void startFieldEvent(){
+        int[] testArray = goToJailTest.startFieldEvent();
+
+        assertEquals(1, testArray[3]);
+    }    
 }
 
 

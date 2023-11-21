@@ -22,14 +22,75 @@ public class Game {
                     //Hardcodeed distance to jail value
                     gameBoard.movePlayerFigure(playerArr[i], 12);
                     playerArr[i].IsInJail = true;
+                    System.out.println("You have gone to " + landOnField.getDescription() + "!");
                 }
+                else{
+                    if(fieldOutCome[1] == 1){
+                        playerArr[i].account.subtractFromAccountBalance(fieldOutCome[0]);
+                        gameBoard.setFieldOwner(landOnField.fieldNumber, playerArr[i]);
+                        System.out.println("You have bougth  " + landOnField.getDescription() + " for " + fieldOutCome[0] + "€.");
+                        
+                        if(gameBoard.sameOwner(playerArr[i])){
+                            System.out.println("You now own both properties of the color " + landOnField.getFieldColour() + ".");
+                        }
+
+                        else{
+                            System.out.println("You now own one of the properties of color" + landOnField.getFieldColour() + ".");
+                        }
 
 
 
+                    }
+                    
+                    else if(fieldOutCome[2] == 1){
+                        playerArr[i].account.subtractFromAccountBalance(fieldOutCome[0]);
+                        Player owner = gameBoard.getFieldOwner(landOnField.fieldNumber);
+                        owner.account.addToAccountBalance(fieldOutCome[0]);
+                    }
+
+                }
+        
                 if(playerArr[i].account.getAccountBalance() < 0){
                     gameOnGoing = false;
+                    System.out.println(playerArr[i] + " is broke!");
                 }
             }
+        }
+        boolean tied = false;
+        int tiedAmount = 0;
+        int higestAmount = 0;
+        Player currentWinner = playerArr[0];
+        Player tiedOne = null;
+        Player tiedTwo = null;
+        for(int i = 0; i < playerArr.length; i++){
+            if(playerArr[i].account.getAccountBalance() > higestAmount){
+                higestAmount = playerArr[i].account.getAccountBalance();
+                currentWinner = playerArr[i];
+            }
+
+            if(playerArr[i].account.getAccountBalance() == higestAmount && higestAmount != 0){
+                tied = true;
+                if(tiedOne == null){
+                    tiedOne = playerArr[i];
+                    tiedAmount = 2;
+                }
+
+                else{
+                    tiedTwo = playerArr[i];
+                    tiedAmount = 3;
+                }
+            }
+
+
+        }
+        if(tied){
+            Player[] tiedPlayerArr = new Player[tiedAmount];
+            tiedPlayerArr[0] = currentWinner;
+            tiedPlayerArr[1] = tiedOne;
+            if(tiedAmount == 3){
+                tiedPlayerArr[2] = tiedTwo;
+            }
+
         }
         
     }

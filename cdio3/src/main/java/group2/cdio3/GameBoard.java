@@ -90,7 +90,8 @@ class GameBoard {
         }
     }
 
-    public Field movePlayerFigure(Player player, int dieValue){
+    public Field movePlayerFigure(Player player, int dieValue, boolean forcedMove){
+        
         int startPosition = getFieldNumber(player);
         int endPosition = 0;
 
@@ -109,10 +110,12 @@ class GameBoard {
                 playerPosition[endPosition][i] = player;
             }
         }
-
-        if(endPosition < startPosition) {
-            player.account.addToAccountBalance(2);
+        if(!forcedMove){
+            if(endPosition < startPosition) {
+                player.account.addToAccountBalance(2);
+            }
         }
+        
         return fieldArray[endPosition];
     }
 

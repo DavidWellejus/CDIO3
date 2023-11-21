@@ -5,8 +5,8 @@ class Property extends Field{
     private boolean isOwned = false;
     private String colour;
     private Player player;
-    private int buyFlag         = 0;
-    private int rentFlag        = 0;
+    private int buyFlag;
+    private int rentFlag;
 
 
     public Property(String name, int fieldNumber, int price, String colour){
@@ -37,6 +37,14 @@ class Property extends Field{
     }
 
     public int[] startFieldEvent(){
+        buyFlag = 0;
+        rentFlag = 0;
+        if(this.isOwned == true){
+            buyFlag = 1;
+        } 
+        else{
+            rentFlag = 1;
+        }
         int[] array = new int[3];
         array[0] = this.price;
         array[1] = buyFlag;

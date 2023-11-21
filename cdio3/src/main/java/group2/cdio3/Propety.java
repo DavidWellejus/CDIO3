@@ -39,7 +39,8 @@ class Property extends Field{
     public int[] startFieldEvent(){
         buyFlag = 0;
         rentFlag = 0;
-        if(this.isOwned == true){
+        if(this.isOwned == false){
+            this.isOwned = true;
             buyFlag = 1;
         } 
         else{

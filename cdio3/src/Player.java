@@ -1,4 +1,4 @@
-package group2.cdio3;
+
 
 public class Player {
     public final String figureName;

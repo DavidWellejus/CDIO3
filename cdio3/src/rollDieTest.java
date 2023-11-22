@@ -1,4 +1,3 @@
-package group2.cdio3;
 
 import static org.junit.Assert.assertTrue;
 

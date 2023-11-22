@@ -1,9 +1,8 @@
-package group2.cdio3;
+
 
 class GameBoard {
 
-    private Field[] fieldArray;
-    private ChanceCard[] chanceCardArray;
+    public Field[] fieldArray;
     private Player[][] playerPosition;
     private Player[] fieldOwner = new Player[24];
     
@@ -48,27 +47,29 @@ class GameBoard {
         fieldArray[0] = new Start("Start", 0);
         fieldArray[1] = new Property("Chum Bucket", 1, 1, "Brown");
         fieldArray[2] = new Property("Krusty Krab", 2, 1, "Brown");
-        fieldArray[3] = new Chance("Chance", 3);
+        fieldArray[3] = new Parking("Parking", 3);
         fieldArray[4] = new Property("Frozen YOYO", 4, 1, "Grey");
         fieldArray[5] = new Property("Creapy Uncle's Crêpe", 5, 1, "Grey");
         fieldArray[6] = new Jail("Jail", 6);
         fieldArray[7] = new Property("Kinky Cinema", 7, 2, "Purple");
         fieldArray[8] = new Property("Colosseum", 8, 2, "Purple");
-        fieldArray[9] = new Chance("Chance", 9);
+        fieldArray[9] = new Parking("Parking", 9);
         fieldArray[10] = new Property("Pole Dancing Studio", 10, 2, "Orange");
         fieldArray[11] = new Property("Ole's Party Tub Club", 11, 2, "Orange");
         fieldArray[12] = new Parking("Parking", 12);
         fieldArray[13] = new Property("Dahlgaard's Tivoli", 13, 3, "Red");
         fieldArray[14] = new Property("My Little Pony Experience", 14, 3, "Red");
-        fieldArray[15] = new Chance("Chance", 15);
+        fieldArray[15] = new Parking("Parking", 15);
         fieldArray[16] = new Property("Asma's Corner Store", 16, 3, "Yellow");
         fieldArray[17] = new Property("Animal Farm", 17, 3, "Yellow");
         fieldArray[18] = new GoToJail("Go To Jail!", 18);
         fieldArray[19] = new Property("Bowling and Carpets inc.", 19, 4, "Green");
         fieldArray[20] = new Property("Lobotomy Clinic", 20, 4, "Green");
-        fieldArray[21] = new Chance("Chance", 21);
+        fieldArray[21] = new Parking("Parking", 21);
         fieldArray[22] = new Property("Joe's Quick Suicide Clinic", 22, 5, "Blue");
         fieldArray[23] = new Property("Restaurant Cold Feet", 23, 5, "Blue");
+
+        return fieldArray;
     }
 
     public Player getFieldOwner(int fieldNumber) {
@@ -88,6 +89,7 @@ class GameBoard {
                 }
             }
         }
+        return -1;
     }
 
     public Field movePlayerFigure(Player player, int dieValue){

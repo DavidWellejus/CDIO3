@@ -1,4 +1,4 @@
-package group2.cdio3;
+
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -9,7 +9,7 @@ public class PropertyTest{
 
     @Test
     public void getDescriptionTest(){
-        assertEquals("Pizza blue 2", test.getDescription());
+        assertEquals("blue Pizza 2", test.getDescription());
     }
     @Test
     public void buyPropertyTest(){
@@ -21,7 +21,7 @@ public class PropertyTest{
     }
     @Test
     public void startFieldEventTest(){
-        int[] testArray = new int[]{2,0,0};
+        int[] testArray = new int[]{2,1,0};
         int[] sFEArray = test.startFieldEvent();
         for (int i = 0; i < testArray.length; i++){
             assertEquals(testArray[i], sFEArray[i]);

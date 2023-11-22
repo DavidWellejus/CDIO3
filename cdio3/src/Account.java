@@ -1,5 +1,3 @@
-package group2.cdio3;
-
 class Account {
    private int accountBalance;
 

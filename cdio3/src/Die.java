@@ -1,4 +1,4 @@
-package group2.cdio3;
+
 class Die {
     
     public static final int sides = 6;

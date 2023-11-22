@@ -1,4 +1,4 @@
-package group2.cdio3;
+
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -13,6 +13,12 @@ public class ParkingTest {
     }
     @Test
     public void startFieldEvent(){
-        assertEquals(0, parkingTest.startFieldEvent());
+        int[] testArray = parkingTest.startFieldEvent();
+        int[] testArray2 = new int[]{0,0,0};
+        for(int i = 0; i < testArray.length; i++){
+            assertEquals(testArray[i], testArray2[i]);
+        }
+        
+        
     }
 }

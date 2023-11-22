@@ -1,10 +1,9 @@
-package group2.cdio3;
+
 
 class Property extends Field{
     private int price;
     private boolean isOwned = false;
     private String colour;
-    private Player player;
     private int buyFlag;
     private int rentFlag;
 
@@ -16,6 +15,9 @@ class Property extends Field{
        
         
 
+    }
+    public int getPrice(){
+        return this.price;
     }
 
     public int buyProperty(){

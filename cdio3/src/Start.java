@@ -1,4 +1,4 @@
-package group2.cdio3;
+
 
 class Start extends Field{
     private int[] sFEArray = new int[]{0,0,0};

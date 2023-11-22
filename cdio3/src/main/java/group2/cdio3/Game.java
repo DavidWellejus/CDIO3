@@ -52,7 +52,8 @@ public class Game {
 
                 if (playerArr[i].account.getAccountBalance() < 0) {
                     gameOnGoing = false;
-                    System.out.println(playerArr[i] + " is broke!");
+                    i = 4;
+                    System.out.println(playerArr[i].figureName + " is broke!");
                 }
             }
         }

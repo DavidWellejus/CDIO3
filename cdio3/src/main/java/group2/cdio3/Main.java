@@ -45,7 +45,7 @@ public class Main {
                         throw new Exception();
                     }
                     char symbol = pieces[playerPiece].charAt(0);
-                    playerArr[i] = new Player(pieces[playerPiece], amount, symbol);
+                    playerArr[i] = new Player(pieces[playerPiece-1], amount, symbol);
                     created = true;
                 }
                 catch (Exception e){

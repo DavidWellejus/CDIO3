@@ -10,7 +10,7 @@ public class Game {
                 scanner.nextLine();
                 if (playerArr[i].IsInJail) {
                     Jail.getOutOfJail(playerArr[i]);
-                    System.out.println("You paid 1$ to get out of jail, you rascal.");
+                    System.out.println("You paid 1€ to get out of jail, you rascal.");
                 }
 
                 int dieValue = RollCup.rollDie();
@@ -28,7 +28,7 @@ public class Game {
                         playerArr[i].account.subtractFromAccountBalance(fieldOutCome[0]);
                         gameBoard.setFieldOwner(landOnField.fieldNumber, playerArr[i]);
                         System.out.println(
-                                "You have bougth  " + landOnField.getDescription() + " for " + fieldOutCome[0] + "€.");
+                                "You have bougth  " + landOnField.name + " for " + fieldOutCome[0] + "€.");
 
                         if (gameBoard.sameOwner(playerArr[i])) {
                             System.out.println(
@@ -51,7 +51,7 @@ public class Game {
                         playerArr[i].account.subtractFromAccountBalance(fieldOutCome[0]);
                         Player owner = gameBoard.getFieldOwner(landOnField.fieldNumber);
                         owner.account.addToAccountBalance(fieldOutCome[0]);
-                        System.out.println("You have paid " + fieldOutCome[0] + "$ to " + owner.figureName +"!");
+                        System.out.println("You have paid " + fieldOutCome[0] + "€ to " + owner.figureName +"!");
                         if(doubleRent){
                             System.out.println("The rent was double due to " + owner.figureName + "owning both properties of the colour " + landOnField.getFieldColour() + ".");
                         }

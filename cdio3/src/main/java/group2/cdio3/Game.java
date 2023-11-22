@@ -69,7 +69,7 @@ public class Game {
         Player tiedOne = null;
         Player tiedTwo = null;
         for (int i = 0; i < playerArr.length; i++) {
-            if (playerArr[i].account.getAccountBalance() > higestAmount) {
+            if (playerArr[i].account.getAccountBalance() > highestAmount) {
                 highestAmount = playerArr[i].account.getAccountBalance();
                 currentWinner = playerArr[i];
             }
@@ -109,7 +109,7 @@ public class Game {
             currentWinner = tiedPlayerArr[0];
             highestAmount = tiedPlayerArr[0].account.getAccountBalance();
             for (int i = 0; i < tiedPlayerArr.length; i++) {
-                if (tiedPlayerArr[i].account.getAccountBalance() > higestAmount) {
+                if (tiedPlayerArr[i].account.getAccountBalance() > highestAmount) {
                     currentWinner = tiedPlayerArr[i];
                     highestAmount = tiedPlayerArr[i].account.getAccountBalance();
                 }

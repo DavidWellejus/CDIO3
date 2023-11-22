@@ -56,6 +56,8 @@ public class Game {
                 }
             }
         }
+        Player winner = findWinner(playerArr);
+        System.out.println(winner.figureName + " has won the game!");
     }
 
     private static Player findWinner(Player[] playerArr) {

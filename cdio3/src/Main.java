@@ -44,7 +44,7 @@ public class Main {
                     if (playerPiece < 1 || playerPiece > 4){
                         throw new Exception();
                     }
-                    char symbol = pieces[playerPiece].charAt(0);
+                    char symbol = pieces[playerPiece-1].charAt(0);
                     playerArr[i] = new Player(pieces[playerPiece-1], amount, symbol);
                     created = true;
                 }

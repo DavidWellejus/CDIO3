@@ -42,6 +42,9 @@ public class Game {
                     }
 
                     else if (fieldOutCome[2] == 1) {
+                        if(gameBoard.sameOwner(player[i])){
+                            fieldOutCome[0] = fieldOutCome[0] * 2;
+                        }
                         playerArr[i].account.subtractFromAccountBalance(fieldOutCome[0]);
                         Player owner = gameBoard.getFieldOwner(landOnField.fieldNumber);
                         owner.account.addToAccountBalance(fieldOutCome[0]);
@@ -51,8 +54,8 @@ public class Game {
 
                 if (playerArr[i].account.getAccountBalance() < 0) {
                     gameOnGoing = false;
-                    i = 4;
                     System.out.println(playerArr[i].figureName + " is broke!");
+                    i = 4;
                 }
             }
         }

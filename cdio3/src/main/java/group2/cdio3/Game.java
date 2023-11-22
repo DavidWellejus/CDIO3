@@ -56,41 +56,52 @@ public class Game {
                 }
             }
         }
-        boolean tied = false;
-        int tiedAmount = 0;
-        int higestAmount = 0;
-        Player currentWinner = playerArr[0];
-        Player tiedOne = null;
-        Player tiedTwo = null;
-        for(int i = 0; i < playerArr.length; i++){
-            if(playerArr[i].account.getAccountBalance() > higestAmount){
-                higestAmount = playerArr[i].account.getAccountBalance();
-                currentWinner = playerArr[i];
-            }
-
-            if(playerArr[i].account.getAccountBalance() == higestAmount && higestAmount != 0){
-                tied = true;
-                if(tiedOne == null){
-                    tiedOne = playerArr[i];
-                    tiedAmount = 2;
+        private static Player findWinner(Player[] playerArr){
+            boolean tied = false;
+            int tiedAmount = 0;
+            int higestAmount = 0;
+            Player winner = null;
+            Player currentWinner = playerArr[0];
+            Player tiedOne = null;
+            Player tiedTwo = null;
+            for(int i = 0; i < playerArr.length; i++){
+                if(playerArr[i].account.getAccountBalance() > higestAmount){
+                    higestAmount = playerArr[i].account.getAccountBalance();
+                    currentWinner = playerArr[i];
                 }
 
-                else{
-                    tiedTwo = playerArr[i];
-                    tiedAmount = 3;
+                if(playerArr[i].account.getAccountBalance() == higestAmount && higestAmount != 0){
+                    tied = true;
+                    if(tiedOne == null){
+                        tiedOne = playerArr[i];
+                        tiedAmount = 2;
+                    }
+
+                    else{
+                        tiedTwo = playerArr[i];
+                        tiedAmount = 3;
+                    }
                 }
+
+
             }
+            if(tied){
+                Player[] tiedPlayerArr = new Player[tiedAmount];
+                tiedPlayerArr[0] = currentWinner;
+                tiedPlayerArr[1] = tiedOne;
+                if(tiedAmount == 3){
+                    tiedPlayerArr[2] = tiedTwo;
+                }
+                for (int i = 0; i < gameBoard.length; i++){
+                    Player owner = gameBoard.fieldArray.getFieldOwner(i);
+                    for (int j = 0; j < playerArr.length; j++){
+                        if (playerArr[j] == owner){
+                            playerArr[j].account.addToAccountBalance(gameBoard.fieldArray[i].price);
+                        }
+                    }
+                }
 
-
-        }
-        if(tied){
-            Player[] tiedPlayerArr = new Player[tiedAmount];
-            tiedPlayerArr[0] = currentWinner;
-            tiedPlayerArr[1] = tiedOne;
-            if(tiedAmount == 3){
-                tiedPlayerArr[2] = tiedTwo;
             }
-
         }
         
     }

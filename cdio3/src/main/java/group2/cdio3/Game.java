@@ -56,7 +56,7 @@ public class Game {
                 }
             }
         }
-        Player winner = findWinner(playerArr);
+        Player winner = findWinner(playerArr, gameBoard);
         System.out.println(winner.figureName + " has won the game!");
     }
 
@@ -98,8 +98,8 @@ public class Game {
             if (tiedAmount == 3) {
                 tiedPlayerArr[2] = tiedTwo;
             }
-            for (int i = 0; i < gameBoard.length; i++) {
-                Player owner = gameBoard.fieldArray.getFieldOwner(i);
+            for (int i = 0; i < gameBoard.fieldArray.length; i++) {
+                Player owner = gameBoard.getFieldOwner(i);
                 for (int j = 0; j < tiedPlayerArr.length; j++) {
                     if (tiedPlayerArr[j] == owner) {
                         tiedPlayerArr[j].account.addToAccountBalance(gameBoard.fieldArray[i].price);

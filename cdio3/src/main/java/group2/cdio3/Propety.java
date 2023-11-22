@@ -4,7 +4,6 @@ class Property extends Field{
     private int price;
     private boolean isOwned = false;
     private String colour;
-    private Player player;
     private int buyFlag;
     private int rentFlag;
 

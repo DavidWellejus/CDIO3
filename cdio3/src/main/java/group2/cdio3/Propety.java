@@ -17,6 +17,9 @@ class Property extends Field{
         
 
     }
+    public int getPrice(){
+        return this.price;
+    }
 
     public int buyProperty(){
         this.isOwned = true;

@@ -60,7 +60,7 @@ public class Game {
         System.out.println(winner.figureName + " has won the game!");
     }
 
-    private static Player findWinner(Player[] playerArr) {
+    private static Player findWinner(Player[] playerArr, GameBoard gameBoard) {
         boolean tied = false;
         int tiedAmount = 0;
         int highestAmount = 0;

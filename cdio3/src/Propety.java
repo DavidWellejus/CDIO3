@@ -31,7 +31,7 @@ class Property extends Field{
     }
 
     public String getDescription(){
-        return this.colour +" "+ this.name + " " + this.price;
+        return "(colour: " + this.colour +", name: "+ this.name + ", price: " + this.price +")";
     }
     @Override
     public String getFieldColour(){

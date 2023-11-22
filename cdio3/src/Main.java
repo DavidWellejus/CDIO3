@@ -63,7 +63,6 @@ public class Main {
         else{
             gameBoard = new GameBoard(playerArr[0], playerArr[1], playerArr[2], playerArr[3]);
         }
-        scanner.close();
         Game.playGame(playerArr, gameBoard);
     }
 }

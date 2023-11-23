@@ -1,15 +1,16 @@
-
+import java.util.Scanner;
 public class Game {
 
     public static void playGame(Player[] playerArr, GameBoard gameBoard) {
         boolean gameOnGoing = true;
-
+        var scanner = new java.util.Scanner(System.in);
         while (gameOnGoing) {
             for (int i = 0; i < playerArr.length; i++) {
-
-                System.out.println("It is " + playerArr[i].figureName + "'s turn.");
+                System.out.println("\nIt is " + playerArr[i].figureName + "'s turn. You have "+ playerArr[i].account.getAccountBalance() + "$ in your account. Press enter to proceed.");
+                scanner.nextLine();
                 if (playerArr[i].IsInJail) {
                     Jail.getOutOfJail(playerArr[i]);
+                    System.out.println("You paid 1€ to get out of jail, you rascal.");
                 }
 
                 int dieValue = RollCup.rollDie();
@@ -27,7 +28,7 @@ public class Game {
                         playerArr[i].account.subtractFromAccountBalance(fieldOutCome[0]);
                         gameBoard.setFieldOwner(landOnField.fieldNumber, playerArr[i]);
                         System.out.println(
-                                "You have bougth  " + landOnField.getDescription() + " for " + fieldOutCome[0] + "€.");
+                                "You have bougth  " + landOnField.name + " for " + fieldOutCome[0] + "€.");
 
                         if (gameBoard.sameOwner(playerArr[i])) {
                             System.out.println(
@@ -42,20 +43,30 @@ public class Game {
                     }
 
                     else if (fieldOutCome[2] == 1) {
+                        boolean doubleRent = false;
+                        if(gameBoard.sameOwner(playerArr[i])){
+                            fieldOutCome[0] = fieldOutCome[0] * 2;
+                            doubleRent = true;
+                        }
                         playerArr[i].account.subtractFromAccountBalance(fieldOutCome[0]);
                         Player owner = gameBoard.getFieldOwner(landOnField.fieldNumber);
                         owner.account.addToAccountBalance(fieldOutCome[0]);
+                        System.out.println("You have paid " + fieldOutCome[0] + "€ to " + owner.figureName +"!");
+                        if(doubleRent){
+                            System.out.println("The rent was double due to " + owner.figureName + "owning both properties of the colour " + landOnField.getFieldColour() + ".");
+                        }
                     }
 
                 }
 
                 if (playerArr[i].account.getAccountBalance() < 0) {
                     gameOnGoing = false;
-                    i = 4;
                     System.out.println(playerArr[i].figureName + " is broke!");
+                    i = 4;
                 }
             }
         }
+        scanner.close();
         Player winner = findWinner(playerArr, gameBoard);
         System.out.println(winner.figureName + " has won the game!");
     }

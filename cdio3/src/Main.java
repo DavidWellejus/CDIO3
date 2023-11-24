@@ -30,6 +30,7 @@ public class Main {
         }
         String[] pieces = { "The Honeybadger", "Manbearpig", "Pimp Master 3000", "Queen" };
         Player[] playerArr = new Player[numberOfPlayers];
+        System.out.println("The youngest player selects their piece first, and will become player 1.");
         for (int i = 0; i < playerArr.length; i++) {
             boolean created = false;
             while (!created) {

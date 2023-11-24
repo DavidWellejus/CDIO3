@@ -11,6 +11,6 @@ c) Click the green "Code"button
 d) Select "Download ZIP"
 e) Unpack the ZIP while with an appropiate tool (7Zip, WinRar)
 Requirements: Java 17 SDK, Windows 10 or above
-Compile: Open your prefered CLI and navigate to *\CDIO-3 Run the following command: javac Account.java Die.java Field.java Game.java GameBoard.java GoToJail.java Jail.java  Main.java Parking.java  Player.java Propety.java RollCup.java Start.java
+Compile: Open your prefered CLI and navigate to *\CDIO-3 Run the following command: javac *.java
 Run program: Open your prefered CLI and navigate to *\CDIO-3 Run the following command: java Main
 

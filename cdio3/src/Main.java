@@ -44,11 +44,7 @@ public class Main {
                 int playerPiece = 0;
                 try {
                     String input = scanner.nextLine();
-                    try {
-                        playerPiece = Integer.parseInt(input);
-                    } catch (Exception e) {
-                        throw new Exception();
-                    }
+                    playerPiece = Integer.parseInt(input);
                     if (playerPiece < 1 || playerPiece > 4) {
                         throw new Exception();
                     }

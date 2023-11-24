@@ -1,15 +1,13 @@
 
-
 class GameBoard {
 
     public Field[] fieldArray;
     private Player[][] playerPosition;
     private Player[] fieldOwner = new Player[24];
-    
-    
-    //Constructor for two players
-    public GameBoard(Player player1, Player player2){
-       
+
+    // Constructor for two players
+    public GameBoard(Player player1, Player player2) {
+
         playerPosition = new Player[24][3];
         playerPosition[0][1] = player1;
         playerPosition[0][2] = player2;
@@ -17,9 +15,9 @@ class GameBoard {
         fieldArray = generateFieldArray();
     }
 
-    //Constructor for three players
-    public GameBoard(Player player1, Player player2, Player player3){
-        
+    // Constructor for three players
+    public GameBoard(Player player1, Player player2, Player player3) {
+
         playerPosition = new Player[24][4];
         playerPosition[0][1] = player1;
         playerPosition[0][2] = player2;
@@ -28,8 +26,8 @@ class GameBoard {
         fieldArray = generateFieldArray();
     }
 
-    //Constructor for four players
-    public GameBoard(Player player1, Player player2, Player player3, Player player4){
+    // Constructor for four players
+    public GameBoard(Player player1, Player player2, Player player3, Player player4) {
 
         playerPosition = new Player[24][5];
         playerPosition[0][1] = player1;
@@ -40,16 +38,16 @@ class GameBoard {
         fieldArray = generateFieldArray();
     }
 
-    private static Field[] generateFieldArray(){
+    private static Field[] generateFieldArray() {
 
         Field[] fieldArray = new Field[24];
-        
+
         fieldArray[0] = new Start("Start", 0);
         fieldArray[1] = new Property("Chum Bucket", 1, 1, "Brown");
         fieldArray[2] = new Property("Krusty Krab", 2, 1, "Brown");
         fieldArray[3] = new Parking("Parking", 3);
         fieldArray[4] = new Property("Frozen YOYO", 4, 1, "Grey");
-        fieldArray[5] = new Property("Creapy Uncle's Crêpe", 5, 1, "Grey");
+        fieldArray[5] = new Property("Creapy Uncle's Crepe", 5, 1, "Grey");
         fieldArray[6] = new Jail("Jail", 6);
         fieldArray[7] = new Property("Kinky Cinema", 7, 2, "Purple");
         fieldArray[8] = new Property("Colosseum", 8, 2, "Purple");
@@ -73,7 +71,7 @@ class GameBoard {
     }
 
     public Player getFieldOwner(int fieldNumber) {
-        //We migth want to implement a NULL check
+        // We migth want to implement a NULL check
         return fieldOwner[fieldNumber];
     }
 
@@ -82,9 +80,9 @@ class GameBoard {
     }
 
     public int getFieldNumber(Player player) {
-        for(int i = 0; i < playerPosition.length; i++) {
-            for(int j = 0; j < playerPosition[i].length; j++){
-                if(playerPosition[i][j] == player) {
+        for (int i = 0; i < playerPosition.length; i++) {
+            for (int j = 0; j < playerPosition[i].length; j++) {
+                if (playerPosition[i][j] == player) {
                     return i;
                 }
             }
@@ -92,27 +90,26 @@ class GameBoard {
         return -1;
     }
 
-    public Field movePlayerFigure(Player player, int dieValue){
+    public Field movePlayerFigure(Player player, int dieValue) {
         int startPosition = getFieldNumber(player);
         int endPosition = 0;
 
-        if(dieValue + startPosition > 23){
+        if (dieValue + startPosition > 23) {
 
             endPosition = dieValue - (23 - startPosition) - 1;
-        }
-        else {
+        } else {
             endPosition = dieValue + startPosition;
         }
 
-        for(int i = 0; i < playerPosition[startPosition].length; i++){
-            if(playerPosition[startPosition][i] == player) {
-                
+        for (int i = 0; i < playerPosition[startPosition].length; i++) {
+            if (playerPosition[startPosition][i] == player) {
+
                 playerPosition[startPosition][i] = null;
                 playerPosition[endPosition][i] = player;
             }
         }
 
-        if(endPosition < startPosition) {
+        if (endPosition < startPosition) {
             player.account.addToAccountBalance(2);
         }
         return fieldArray[endPosition];
@@ -123,8 +120,8 @@ class GameBoard {
         Player owner = getFieldOwner(field);
         String fieldColour = fieldArray[field].getFieldColour();
 
-        for(int i = 0; i < fieldArray.length; i++) {
-            if(fieldArray[i].getFieldColour().equals(fieldColour) && i != field && getFieldOwner(i) == owner){
+        for (int i = 0; i < fieldArray.length; i++) {
+            if (fieldArray[i].getFieldColour().equals(fieldColour) && i != field && getFieldOwner(i) == owner) {
                 return true;
             }
         }

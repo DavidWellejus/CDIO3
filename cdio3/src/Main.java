@@ -43,10 +43,12 @@ public class Main {
                 }
                 int playerPiece = 0;
                 try {
-                    while (scanner.hasNextInt()) {
-                        playerPiece = scanner.nextInt();
+                    String input = scanner.nextLine();
+                    try {
+                        playerPiece = Integer.parseInt(input);
+                    } catch (Exception e) {
+                        throw new Exception();
                     }
-                    scanner.nextLine();
                     if (playerPiece < 1 || playerPiece > 4) {
                         throw new Exception();
                     }
